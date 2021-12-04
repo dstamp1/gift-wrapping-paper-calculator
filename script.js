@@ -1,48 +1,33 @@
-let bulbs = document.querySelectorAll('.lightbulb')
-let totalClicks = 0
 
-bulbs.forEach((bulb) =>{
-  bulb.addEventListener('click', e => {
-    bulb.classList.toggle('active')
-    totalClicks += 1
-    if (totalClicks >= 50 ){
-      bulbs.forEach((bulb)=>{
-        bulb.classList.add('hidden')
-        bulb.classList.remove('active')
-      })
-    }
-  })
+let calculateButton = document.querySelector('#calculateButton')
+let resetButton = document.querySelector('#resetButton')
+let result = document.querySelector('#result')
+
+let heightInput = document.querySelector('#inputHeight')
+let widthInput = document.querySelector('#inputWidth')
+let lengthInput = document.querySelector('#inputLength')
+let overlapInput = document.querySelector('#inputOverlap')
+
+console.log(calculateButton)
+
+calculateButton.addEventListener('click', (e)=>{
+  result.classList.remove('d-none')
+
+  height = parseFloat(heightInput.value)
+  width = parseFloat(widthInput.value)
+  length = parseFloat(lengthInput.value)
+  overlap = parseFloat(overlapInput.value)
+
+  outputLength = 2*width + 2*height + overlap
+  outputWidth = 1*length + 1*height + overlap
+
+  result.innerHTML = `Cut your wrapping paper to ${outputLength} x ${outputWidth}`
 })
 
-
-let theButton = document.querySelector('.button')
-let resultDiv = document.querySelector('#result')
-let lightsOn = 0
-let totalLights = 0
-let lightsOff = 0
-
-theButton.addEventListener('click', (e)=>{
-  lightsOn = 0
-  totalLights = 0
-  lightsOff = 0
-
-  bulbs.forEach(bulb =>{
-    totalLights += 1
-    if (bulb.classList.contains('active')){
-      lightsOn+=1
-    }
-  })
-  lightsOff = totalLights-lightsOn
-
-  if (lightsOn == 1){
-    resultDiv.innerHTML = `${lightsOn} light is on!`
-  } else {
-    resultDiv.innerHTML = `${lightsOn} lights are on!`
-  }
-
-  if (lightsOn == totalLights){
-    resultDiv.innerHTML = `Wow! All lights are on`
-  }
-
-  resultDiv.classList.remove('hidden')
+resetButton.addEventListener('click', (e)=>{
+  heightInput.value = 1
+  widthInput.value = 1
+  lengthInput.value = 1
+  overlapInput.value = 1.5
+  result.classList.add('d-none')
 })

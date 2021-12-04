@@ -20,8 +20,40 @@
         <p>Use this calculator to determine the dimensions to cut your wrapping paper to just the right size</p>
       </div>
       <div class="col-12">
-        Column
+        <div class="row">
+
+          <div class="mb-3 col-sm-12 col-md-4">
+            <label for="inputLength" class="form-label">Length</label>
+            <input type="number" class="form-control" id="inputLength" aria-describedby="lengthHelp" min=0 value=1 step="any">
+            <div id="lengthHelp" class="form-text">Longest side of the package</div>
+          </div>
+
+          <div class="mb-3 col-sm-12 col-md-4">
+            <label for="inputWidth" class="form-label">Width</label>
+            <input type="number" class="form-control" id="inputWidth" aria-describedby="widthHelp" min=0 value=1 step="any">
+          </div>
+
+          <div class="mb-3 col-sm-12 col-md-3">
+            <label for="inputHeight" class="form-label">Height</label>
+            <input type="number" class="form-control" id="inputHeight" aria-describedby="lengthHelp" min=0 value=1 step="any">
+          </div>
+
+          <div class="mb-3 col-sm-12 col-md-1">
+            <label for="inputOverlap" class="form-label">Overlap</label>
+            <input type="number" class="form-control" id="inputOverlap" aria-describedby="lengthHelp" min=0 value=1.5 step="any">
+          </div>
+
+          <button id="calculateButton" class="btn btn-primary col-12">Calculate</button>
+          <button id="resetButton" class="btn btn-outline-secondary col-12">Reset</button>
+        </div>
+
+        <div class="col-12">
+          <div class="alert alert-success d-none" role="alert" id="result">
+
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 
@@ -30,7 +62,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-  -->
 </body>
 
 <script type="text/javascript" src="script.js"></script>
